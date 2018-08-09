@@ -1,0 +1,19 @@
+{% extends "superset/basic.html" %}
+
+# TODO: move the libs required by flask into the common.js from welcome.js.
+{% block head_js %}
+  {{ super() }}
+  {% with filename="welcome" %}
+    {% include "superset/partials/_script_tag.html" %}
+  {% endwith %}
+{% endblock %}
+
+{% block title %}{{ _("Import") }}{% endblock %}
+{% block body %}
+    {% include "superset/flash_wrapper.html" %}
+      <div id="pid"></div>
+      <div id="bar"></div>
+      <div id="app">
+         <script src="{{ js_manifest('echarts.js') }}"></script>
+      </div>
+{% endblock %}
